@@ -3,8 +3,3 @@ spring:
     active: ${APP_PROFILE:dev}
   jpa:
     open-in-view: true
-
-server:
-  error:
-    include-binding-errors: always
-    include-message: always
