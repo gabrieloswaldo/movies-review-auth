@@ -1,28 +1,33 @@
-# Read Me First
-The following was discovered as part of building this project:
+# Movies Review API Authentication
+This project is a REST API authentication service for the [Movies Review API]([https://github.com/gabrieloswaldo/movies-review-api) (see documentation).
 
-* The original package name 'br.com.letscode.itau-bootcamp-dev' is invalid and this project uses 'br.com.letscode.itaubootcampdev' instead.
+The authentication is done through the endpoint with email and password. The service will validate the user's email and password in the same database, then return a JWT token, which will be returned to the user and used later for endpoints authorization.
 
-# Getting Started
+## Execution
 
-### Reference Documentation
-For further reference, please consider the following sections:
+### Prerequisites
+- Java 11
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.7.1/maven-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.7.1/maven-plugin/reference/html/#build-image)
-* [Spring Web](https://docs.spring.io/spring-boot/docs/2.7.1/reference/htmlsingle/#web)
-* [Spring Data JPA](https://docs.spring.io/spring-boot/docs/2.7.1/reference/htmlsingle/#data.sql.jpa-and-spring-data)
-* [Validation](https://docs.spring.io/spring-boot/docs/2.7.1/reference/htmlsingle/#io.validation)
-* [Spring cache abstraction](https://docs.spring.io/spring-boot/docs/2.7.1/reference/htmlsingle/#io.caching)
+### Step by step
+Follow this step by step to run the application (start at the project root directory):
+- Clone this project;
+- Import it as a Maven project into your IDE;
+- Run the database container inside the [Movies Review API]([https://github.com/gabrieloswaldo/movies-review-api);
+- Run the _MoviesReviewAuthApplication_ class.
 
-### Guides
-The following guides illustrate how to use some features concretely:
+## API documentation
+This is a summary of the application endpoints. They can be tested using [Postman](https://www.postman.com/) by importing the collection available into the `postman` directory at the project root.
 
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/rest/)
-* [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/)
-* [Validation](https://spring.io/guides/gs/validating-form-input/)
-* [Caching Data with Spring](https://spring.io/guides/gs/caching/)
+### POST - `http://localhost:8081/api/v1/auth`
+Send a POST request with `Content-Type` `application/json` to this endpoint with a body as the following:
+```json
+{
+    "email": "teste@email.com",
+    "password": "123456"
+}
+```
 
+## Features to be implemented
+Finally, some features were not implemented and may be added in the future:
+- Add API Swagger documentation;
+- Add caching.
